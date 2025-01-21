@@ -1,0 +1,631 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+/* Общие стили */
+body {
+    font-family: "Montserrat", serif;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1 0 auto;
+    padding: 20px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #262626;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.auth-btn {
+    color: #262626;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* Стили для форм аутентификации */
+.auth-modal {
+    max-width: 400px;
+    margin: 160px auto;
+    padding: 20px;
+    background: white;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); */
+}
+
+.auth-modal h2 {
+    font-size: 20px;
+    color: #262626;
+    margin-bottom: 10px;
+}
+
+.auth-modal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px dashed #ddd;
+    outline: none;
+}
+
+.auth-modal button {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: #262626;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.auth-modal p {
+    color: #262626;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.auth-modal p a {
+    color: #262626;
+    font-weight: 500;
+}
+
+/* Стили для курсов */
+.courses-grid,
+.user-courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    transition: opacity 0.3s ease;
+    padding: 10px 0;
+}
+
+.user-courses a {
+    color: #262626;
+    font-weight: 500;
+}
+
+.course-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: white;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+    /* border-radius: 8px; */
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.course-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.course-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.course-info-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.course-description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #262626;
+    /* max-width: 70%; */
+}
+
+.course-description p {
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Стили для фильтров */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px dashed #e9ecef;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* border-radius: 4px; */
+}
+
+.filter-btn:hover {
+    /* border-color: #262626; */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    /* background: #f5f5f5; */
+}
+
+.filter-btn.active {
+    background: #262626;
+    color: white;
+    border-color: #262626;
+}
+
+/* Стили для профиля */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Стили для header */
+.main-header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px dashed #e9ecef;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #262626;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-btn {
+    padding: 8px 16px;
+    background: #262626;
+    color: white;
+    text-decoration: none;
+    /* border-radius: 4px; */
+}
+
+.username {
+    font-weight: 500;
+    color: #262626;
+}
+
+.user-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    padding: 8px 0;
+    min-width: 150px;
+    margin-top: 18px;
+    z-index: 1000;
+    border: 1px solid #e9ecef;
+    border-top: none;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+    /* border-radius: 4px; */
+}
+
+.user-menu.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #262626;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+}
+
+/* Стили для footer */
+.main-footer {
+    background: #fff;
+    padding: 40px 0;
+    margin-top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px dashed #e9ecef;
+    /* position: absolute; */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.footer-left {
+    flex: 0 0 300px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #262626;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul a {
+    color: #262626;
+    text-decoration: none;
+}
+
+.footer-col ul a:hover {
+    color: #262626;
+}
+
+.copyright {
+    color: #262626;
+    margin-top: 10px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Стили для алертов */
+.alert {
+    padding: 12px 20px;
+    margin: 0 0 0 0;
+    border-top: none;
+    /* border-radius: 4px; */
+}
+
+.alert-error {
+    background: #fee;
+    color: #c00;
+    border: 1px solid #fcc;
+}
+
+.alert-success {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+/* Добавьте эти стили в конец существующего файла style.css */
+
+.error-page {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.error-page h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.error-page p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #fff;
+    border: 1px solid #262626;
+    color: #262626;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #262626;
+}
+
+/* Анимация при обновлении списка курсов */
+.courses-grid.loading {
+    opacity: 0.5;
+}
+
+/* Добавьте эти стили к существующим */
+.logout-btn {
+    color: #dc3545 !important;
+}
+
+.logout-btn:hover {
+    background-color: #fff5f5 !important;
+}
+
+/* Стили для страницы курса */
+.course-page {
+    padding-bottom: 60px;
+}
+
+.course-header {
+    background: #f8f9fa;
+    padding: 20px 0;
+}
+
+.course-header h1 {
+    margin: 0 0 15px 0;
+    font-size: 32px;
+}
+
+.course-meta {
+    display: flex;
+    gap: 20px;
+    color: #262626;
+}
+
+.course-content {
+    display: grid;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #eee;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 100%;
+    background: #262626;
+    transition: width 0.3s ease;
+    /* border-radius: 4px; */
+}
+
+.progress-text {
+    color: #262626;
+    font-size: 14px;
+}
+
+.lesson-list {
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.lesson-item {
+    border-bottom: 1px solid #eee;
+}
+
+.lesson-item:last-child {
+    border-bottom: none;
+}
+
+.lesson-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    color: #262626;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.lesson-link:hover {
+    background-color: #f8f9fa;
+}
+
+.lesson-duration {
+    color: #262626;
+    font-size: 14px;
+}
+
+.duration {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.course-enrollment {
+    /* width: 100%; */
+}
+
+.enroll-btn {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    background: #262626;
+    border: 1px solid #262626;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.enroll-btn:hover {
+    width: 100%;
+    border: 1px solid #262626;
+    background: #fff;
+    color: #262626;
+}
+
+.price {
+    /* margin-bottom: 20px; */
+    color: #262626;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.monthly {
+    font-size: 24px;
+    font-weight: bold;
+    color: #262626;
+}
+
+.full-price {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Добавьте эти стили к существующим */
+
+
+.materials-list h2 {
+    margin-bottom: 20px;
+    color: #262626;
+}
+
+.materials-list .material-item {
+    margin-bottom: 60px;
+    /* border-radius: 8px; */
+    /* padding: 20px; */
+    /* background: #f8f9fa; */
+}
+
+.material-title {
+    color: #262626;
+    font-size: 18px;
+}
+
+.material-item h3 {
+    margin: 0 0 15px 0;
+    color: #262626;
+}
+
+.material-content {
+    line-height: 1.6;
+    color: #262626;
+}
+
+.course-progress {
+    /* max-width: 150px; */
+    margin-bottom: 30px;
+    padding: 15px 0;
+    text-align: right;
+}
+
+/* Добавьте эти стили к существующим */
+.course-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.duration {
+    color: #666;
+    font-size: 14px;
+}
+
+.category-badge {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    /* border-radius: 4px; */
+}
+
+/* Разные цвета для разных категорий */
+.course-card[data-category="Программирование"] .category-badge {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.course-card[data-category="Дизайн"] .category-badge {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.course-card[data-category="Анализ данных"] .category-badge {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+.course-card[data-category="Маркетинг"] .category-badge {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.course-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.course-info span {
+    color: #262626;
+}
+
+.course-title {
+    color: #262626;
+}
+
+.continue-btn {
+    color: #262626;
+}
